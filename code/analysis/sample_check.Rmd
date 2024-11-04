@@ -1,0 +1,29 @@
+---
+title: "VMR template sample analysis"
+output: html_document
+date: "2024-11-04"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+## load packages
+library(tidyverse)
+
+## load data 
+df = read_csv('../../data/preprocessed/vmrMatPP.csv', show_col_types = FALSE)
+
+```
+
+
+```{r check data}
+
+## data peak 
+ggplot(df, aes(x = blkTrial, y = handAng)) + 
+  geom_line() + 
+  geom_line(data = df, aes(x = blkTrial, y = rotDeg), color = "blue")
+
+```
+
+
+
